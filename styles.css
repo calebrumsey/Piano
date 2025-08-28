@@ -38,3 +38,10 @@ height: calc(var(--width) * 4);  👈
   margin-right: calc(var(--width) / -2);  👈
   z-index: 2;
 }
+.white.active {
+  background-color: #ccc;
+}
+
+.black.active {
+  background-color: #333;
+}
