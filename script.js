@@ -15,6 +15,23 @@ function playNote(key) {
   noteAudio.play();
   key.classList.add('active'); 
 
+  // Add the note to the display if not already present
+  const noteDisplay = document.getElementById('note-display');
+  if (!document.getElementById('display-' + key.dataset.note)) {
+    const span = document.createElement('span');
+    span.id = 'display-' + key.dataset.note;
+    span.textContent = key.dataset.note + ' ';
+    noteDisplay.appendChild(span);
+  }
+
+  noteAudio.addEventListener('ended', () => {
+    key.classList.remove('active');
+    // Remove the note from the display
+    const span = document.getElementById('display-' + key.dataset.note);
+    if (span) {
+      span.remove();
+    }
+  }, { once: true });
 }
 
 document.addEventListener('keydown', (e) => {
