@@ -10,3 +10,6 @@ function playNote(key) {
   noteAudio.play();
   key.classList.add('active'); 
 }
+  noteAudio.addEventListener('ended', () => {
+    key.classList.remove('active');
+  });
